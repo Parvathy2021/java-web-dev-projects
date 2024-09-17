@@ -1,5 +1,7 @@
 package org.launchcode;
 
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,11 +14,26 @@ public class Main {
         MenuItems item4 = new MenuItems( "Bread Michaels",  "Hawaiian bread pudding, topped with caramel and sea salt",  7.00,  "Dessert");
 
         // TODO: print first item
+        System.out.println(item1);
+
+        // Create a menu
+        Menu menu = new Menu();
 
         // TODO: Add item to the menu and print it
 
+        menu.addItem(item1);
+        menu.addItem(item2);
+        menu.addItem(item3);
+        menu.addItem(item4);
+
+        System.out.println(menu
+        );
 
         // TODO: Remove an item and print menu
+
+        menu.removeItem(item3);
+        System.out.println(menu);
+
 
         // TODO: Test equals method
 

@@ -60,8 +60,11 @@ public class MenuItems {
     // SPECIAL METHODS
     // TODO: Define custom toString() method
     //Format name, description, price and conditional "NEW!"
-
-
+@Override
+public String toString(){
+        String newText = isNew()? " -NEW!" : "";
+return item + newText + description + "$" + price;
+}
     //TODO: Define custom equals() method
 
 
@@ -75,4 +78,3 @@ public class MenuItems {
         return daysBetween < 90;
     }
 }
-
