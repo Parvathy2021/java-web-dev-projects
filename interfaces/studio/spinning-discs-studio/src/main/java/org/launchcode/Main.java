@@ -1,22 +1,24 @@
 package org.launchcode;
 
 public class Main {
+    public static void main(String[] args) {
 
-    public static void main(String[] args){
+        // TODO: Declare and initialize a CD and a DVD object.
+        CD cdObject = new CD("Song Playlist",65, true,2);
+        DVD dvdObject = new DVD("Movie collection", 4707,false,4,true);
 
-        CD cd = new CD("CD Example", 700, "CD-R", 350);
-        DVD dvd = new DVD("DVD Example", 4700, "DVD-R", 1450);
+        // TODO: Call each CD and DVD method to verify that they work as expected.
 
-        cd.spinDisc();
-        dvd.spinDisc();
 
-        cd.readData();
-        dvd.readData();
+        // System.out.println("\n CD: \n" + cdObject);
+        cdObject.reportInfo();
+        cdObject.spinDisc();
+        System.out.println("Data transfer rate of this "+cdObject.getTitle() +":"+ cdObject.dataTransferRate());
 
-        System.out.println(cd.writeData(275));
-        System.out.println(dvd.writeData(8000));
+        System.out.println("\n DVD: \n" + dvdObject);
+        dvdObject.spinDisc();
+        System.out.println("Data transfer rate of this "+dvdObject.getTitle() +":"+ dvdObject.dataTransferRate());
 
-        System.out.println(cd.diskInfo());
-        System.out.println(dvd.diskInfo());
+
     }
 }

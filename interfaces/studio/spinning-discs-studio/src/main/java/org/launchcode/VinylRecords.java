@@ -1,20 +1,13 @@
+
 package org.launchcode;
 
-public class CD extends  BaseDisc implements OpticalDisc {
-
-//    private final double seqSpeed;
-double seqSpeed;
-    public CD(String aTitle, double aStorageSize, boolean aReWritable, int aXSpeed) {
+public class VinylRecords extends BaseDisc implements OpticalDisc{
+    public VinylRecords(String aTitle, double aStorageSize, boolean aReWritable, int aXSpeed) {
         super(aTitle, aStorageSize, aReWritable, aXSpeed);
 
-        seqSpeed = 153.6;//Kbps
 
     }
 
-    public double getSeqSpeed() {
-
-        return seqSpeed;
-    }
 
     @Override
     public void spinDisc() {
@@ -23,9 +16,14 @@ double seqSpeed;
 
     @Override
     public double dataTransferRate() {
-
-        return this.getSeqSpeed() * this.getxSpeed();
+        return 0;
     }
+
+//    @Override
+//    public double dataTransferRate() {
+//
+//        return this.getSeqSpeed() * this.getxSpeed();
+//    }
 
     @Override
     public void writeData() {
@@ -41,10 +39,4 @@ double seqSpeed;
     public void reportInfo() {
         System.out.println("\n CD: \n" + this);
     }
-
-
-// TODO: Implement your custom interface.
-
-    // TODO: Determine which fields, methods, and constructors can be extended from the base class and which ones
-    //  need to be declared separately.
 }

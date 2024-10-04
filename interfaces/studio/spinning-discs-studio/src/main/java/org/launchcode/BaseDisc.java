@@ -1,48 +1,71 @@
 package org.launchcode;
+
 import java.util.ArrayList;
 
 public abstract class BaseDisc {
-    private String name;
-    private int storageCapacity;
-    private int remainingCapacity;
-    private int capacityUsed;
-    private String diskType;
-    private ArrayList<String> contents;
 
-    public BaseDisc(String aName, int maxCapacity, String aType, int someUsedCapacity) {
-        name = aName;
-        storageCapacity = maxCapacity;
-        diskType = aType;
-        capacityUsed = checkCapacity(someUsedCapacity);
-        remainingCapacity = spaceLeft();
+    private String title;
+    private double storageSize;
+    private boolean reWritable;
+    private int xSpeed;
+
+//        private boolean isBlank;
+//        private boolean runDefault;
+
+    public BaseDisc(String aTitle, double aStorageSize, boolean aReWritable, int aXSpeed){
+
+        title = aTitle;
+        storageSize = aStorageSize;
+        reWritable = aReWritable;
+        xSpeed = aXSpeed;
+
+    }
+    // getters and setters
+
+    public String getTitle() {
+        return title;
     }
 
-    private int checkCapacity(int dataWritten) {
-        if (storageCapacity < dataWritten){
-            return storageCapacity;
-        }
-        return dataWritten;
+    public double getStorageSize() {
+        return storageSize;
     }
 
-    private int spaceLeft(){
-        return storageCapacity - capacityUsed;
+    public boolean isReWritable() {
+        return reWritable;
     }
 
-    public String diskInfo(){
-        String output = String.format("\nDisk Name: %s\nMax capacity: %d" +
-                "\nSpace used: %d" +
-                "\nAvailable space: %d\n", name, storageCapacity, capacityUsed, remainingCapacity);
-        return output;
+    public int getxSpeed() {
+        return xSpeed;
     }
 
-    public String writeData(int dataSize){
-        if (dataSize > remainingCapacity){
-            return "Not enough disc space!";
-        }
-        capacityUsed += dataSize;
-        remainingCapacity -= dataSize;
-
-        return "Data written to disc.  Remaining space = " + remainingCapacity;
+    public void setTitle(String title) {
+        this.title = title;
     }
+
+    public void setStorageSize(double storageSize) {
+        this.storageSize = storageSize;
+    }
+
+    public void setReWritable(boolean reWritable) {
+        this.reWritable = reWritable;
+    }
+
+    public void setxSpeed(int xSpeed) {
+        this.xSpeed = xSpeed;
+    }
+
+
+
+    // override to String
+
+    @Override
+    public String toString() {
+        return "\n title: " + title +
+                "\n storageSize: " + storageSize + " MB" +
+                "\n reWritable: " + reWritable +
+                "\n xSpeed: " + xSpeed ;
+    }
+
+
 
 }
